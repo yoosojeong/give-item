@@ -1,0 +1,96 @@
+body, .navbar-fixed-top, .navbar-fixed-bottom {
+    min-width: 970px;
+    background:rgb(250,250,250);
+    font-family: "Nanum Gothic", "Apple SD Gothic Neo", "맑은 고딕", "Malgun Gothic", AppleGothic, 돋움, Dotum, Helvetica, Arial, sans-serif;
+}
+p{
+	font-family: "Nanum Gothic";
+}
+.container {
+  width: 970px;
+  max-width: none !important;
+}
+li{
+	list-style: none;
+}
+
+/*Nav*/
+.nav-link{
+	color: rgb(52, 58, 64) !important;
+	font-weight: 400;
+	font-size: 15px;
+}
+.nav-link:hover{
+	background: rgb(243, 243, 243);
+    height: 100%;
+}
+.ready{
+	color: rgba(0,0,0,0.5) !important;
+}
+.ready:hover{
+	color: rgba(0,0,0,0.5) !important;
+	background: rgb(255,255,255) !important;
+	cursor: pointer;
+}
+.btn{
+	font-weight: 600;
+	border-radius: 5px !important;
+}
+.nav-link.dropdown-toggle{
+	color:rgb(33, 37, 41);
+}
+.dropdown-menu{
+	border: 0px;
+    margin-top: 6px !important;
+    background: rgb(250, 250, 250) !important;
+    border-radius: 0px;
+}
+.dropdown-item:hover{
+	background:rgb(230, 230, 230) !important;
+}
+.dropdown-item:active{
+	color:rgb(33, 37, 41);
+}
+i{
+	color: rgb(143, 146, 149); 
+	margin-right: 8px;
+}
+.btn-light{
+	border:0px;
+	background:rgb(255,255,255);
+}
+.btn-light:hover{
+	background:rgb(248, 249, 250);
+}
+
+/* Footer */
+.footer{
+	background-image: none !important;
+}
+.lead img{
+	filter: brightness(92%);
+	width: 100px;
+}
+#ui-datepicker-div{
+	transform: scale(0.8);
+}
+.period_datepicker{
+	top:405px !important;
+}
+.deadline_datepicker{
+	top:442px !important;
+}
+.start_datepicker{
+	top:715px !important;
+}
+
+.errorlist{
+	position: relative;
+    top: 3px;
+    right: -360px;
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
+    color: red;
+    font-weight: bold;
+}

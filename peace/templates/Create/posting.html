@@ -1,0 +1,64 @@
+{% block content %}
+    <h1>게시물 작성</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}  
+
+<script>
+    $('#submit').click(function(){
+        var images = $("#id_images").val()
+        var type_item = $("#id_type_item").val()
+        var state_item = $("#id_state_item").val()
+        var location = $("#id_location").val()
+        var title = $("#id_title").val()
+        var cost = $("#id_cost").val()
+        var contents = $("#id_contents").val()
+        var amount = $("#id_amount").val()
+        var tags = $("#id_tags").val()
+
+        console.log('images : ', images)
+        console.log('type_item : ', type_item)
+        console.log('state_item : ', state_item)
+        console.log('location : ', location)
+        console.log('title : ', title)
+        console.log('cost : ', cost)
+        console.log('contents : ', contents)
+        console.log('amount : ', amount)
+        console.log('tags : ', tags)
+
+        $.ajax({
+            type: "POST", 
+            url: "{% url '_api:api-add-item' %}",
+            data: {
+                'images' : images,
+                'type_item', type_item,
+                'state_item', state_item,
+                'location', location,
+                'title', title,
+                'cost', cost,
+                'contents', contents,
+                'amount', amount,
+                'tags', tags,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            dataType: "json", 
+            success: function(response){
+                
+                console.log(response)
+                
+                if (response.message == 'success'){
+                    console.log("성공")
+                }
+                else{
+                    alert('다시 입력해주세요.')
+                }
+            },
+            error: function(request, status, error){
+                alert("알수 없는 에러가 발생했습니다.")
+            },
+        });
+    })
+<script>

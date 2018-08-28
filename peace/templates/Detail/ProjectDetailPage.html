@@ -1,0 +1,74 @@
+{% extends "Base/Base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'ProjectDetail/css/style.css' %}">
+
+{% include './modalApply.html' %}
+
+<div class="container">
+	<div class="mt-2"></div>
+	{% include './Apply.html' %}
+	<div class="row mt-1">
+		<div class="col-12">
+			<div class="card item bg-light mb-1">
+				<div class="card-body">					
+					<div class="header-text project-detail-header">
+						<span>{{ item.project.title }}</span> 
+						<span class="applicant-count pull-right">
+							<i class="fa fa-pencil mr-1" style="margin-right: 5px;"></i>
+							총 <span class="applicant-num">{{ item.apply }}명</span> 지원
+						</span>
+					</div>
+					
+					<div class="summary">
+						<div class="project-detail-basic-info">
+							<div class="budget">
+								<strong class="mr-2">
+									<i class="fa fa-krw"></i>
+									<span class="title">예상금액 </span>
+								</strong>
+								{{ item.project.cost|intcomma }}원
+							</div>
+							<div class="term">
+								<strong class="mr-2">
+									<i class="fa fa-clock-o"></i>
+									<span class="title">예상기간 </span>
+								</strong>
+								{{ item.project.period }}일
+							</div>
+							<div class="deadline">
+								<strong class="mr-2">
+									<i class="fa fa-pencil"></i>
+									<span class="title">모집마감</span>
+								</strong>
+								{{ item.project.deadline|date:"Y년 m월 d일" }}
+							</div>
+						</div>
+						<table class="table w-100 mt-2">
+							<tbody>
+								<tr>
+									<th>예상 시작일</th>
+									<td>{{ item.project.start_at }}</td>
+									<th>프로/언더</th>
+									<td>{{ item.project.get_type_display }}</td>
+									<th>위치</th>
+									<td>{{ item.project.gugun.sido }} > {{ item.project.gugun }}</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="project-desc">
+							<div class="project-desc-title mb-3">프로젝트 내용</div>
+							{{ item.project.content|linebreaks }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% include './Apply.html' %}
+</div>
+
+
+{% endblock%}

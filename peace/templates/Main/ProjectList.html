@@ -1,0 +1,35 @@
+{% load humanize %}
+<div class="container">
+	<div class="row">
+		{% for item in items %}
+		<div class="col-4">
+			<div class="card bg-light mb-3" style="max-width: 20rem;">
+			  <div class="card-body">
+			    <h6 class="card-title text-primary">[{{ item.project.get_gender_display }}] {{ item.project.title }}</h6>
+			    <h5 class="project-element-list">
+			    	<span class="project-element-money" style="padding-right: 7px;">
+			    		<i class="fa fa-krw mr-1"></i> 
+			    		<strong>{{ item.project.cost|intcomma }}원</strong>
+			    	</span> 
+			    	<span class="project-element-day project-border" style="padding-left: 7px; padding-right: 7px;">
+			    		<i class="fa fa-clock-o mr-1"></i>
+			    		<strong>{{ item.project.period }}일</strong>
+			    	</span>
+			    	<span class="project-element-proposal" style="padding-left: 7px;">
+			    		<i class="fa fa-pencil mr-1"></i>
+			    		<strong>{{ item.apply }}명 지원</strong>
+			    	</span>
+			    </h5>
+			    <p class="card-text">{{ item.project.content }}</p>
+			    <p class="project-skills-tag-viewbox">
+			    	{% for tag in item.tags %}
+			    		<span class="skills-tag">{{tag.tag}}</span>
+			    	{% endfor %}
+			    	...
+			    </p>
+			  </div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
